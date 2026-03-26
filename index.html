@@ -170,14 +170,14 @@ function startGame(){
 function startMusic(){
     const music = document.getElementById("bg-music");
 
-    music.volume = 0.01; // 🔥 เริ่มเบามาก
+    music.volume = 0.03; // 🔥 เริ่มเบามาก
     music.play();
 
     // 🎧 fade in เสียง
-    let vol = 0.01;
+    let vol = 0.03;
     const fade = setInterval(()=>{
-        if(vol < 0.05){
-            vol += 0.005;
+        if(vol < 0.12){
+            vol += 0.01;
             music.volume = vol;
         } else {
             clearInterval(fade);
