@@ -35,6 +35,18 @@ body {
     font-size: 1rem;
 }
 
+/* 👤 Credit (ขวาล่างจริง) */
+#credit {
+    position: fixed;
+    bottom: 12px;
+    right: 14px;
+    font-size: 0.75rem;
+    color: rgba(0,255,65,0.7);
+    text-shadow: 0 0 5px rgba(0,255,65,0.4);
+    pointer-events: none;
+    z-index: 999;
+}
+
 /* 🎮 Game */
 #game-container {
     width: 100%;
@@ -113,6 +125,9 @@ button:hover {
     <button onclick="startGame()">เริ่มภารกิจ</button>
 </div>
 
+<!-- 👤 Credit -->
+<div id="credit">จัดทำโดย ครูนันทชัย รอดจรูญ © 2026</div>
+
 <!-- 🎮 เกม -->
 <div id="game-container">
 
@@ -163,6 +178,9 @@ function startGame(){
     document.getElementById("start-screen").style.display = "none";
     document.getElementById("game-container").style.display = "block";
 
+    // 🔥 ซ่อนเครดิตหลังเริ่มเกม
+    document.getElementById("credit").style.display = "none";
+
     startMusic();
     loadQ();
 }
@@ -170,10 +188,9 @@ function startGame(){
 function startMusic(){
     const music = document.getElementById("bg-music");
 
-    music.volume = 0.03; // 🔥 เริ่มเบามาก
+    music.volume = 0.03;
     music.play();
 
-    // 🎧 fade in เสียง
     let vol = 0.03;
     const fade = setInterval(()=>{
         if(vol < 0.12){
